@@ -11,8 +11,9 @@ import searchRoutes from './Routes/search.route.js';
 import tvRoutes from "./Routes/tv.route.js"
 
 const app = express();
+
 const PORT = ENV_VARS.PORT;
-const __dirName = path.resolve()
+const __dirname = path.resolve()
 //middleWares
 app.use(express.json());
 app.use(cookieParser())
@@ -23,10 +24,10 @@ app.use("/api/V1/tv", protectRoute, tvRoutes);
 app.use("/api/V1/search", protectRoute, searchRoutes);
 
 if(ENV_VARS.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirName , "/frontend/dist")));
+    app.use(express.static(path.join(__dirname , "/frontend/dist")));
 
     app.get("*" , (req, res) => {
-       res.sendFile(path.resolve(__dirName , "frontend" ,"dist" , "index.html"))
+       res.sendFile(path.resolve(__dirname , "frontend" ,"dist" , "index.html"))
     } )
 }
 
