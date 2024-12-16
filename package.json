@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "main": "backend/server.js",
   "scripts": {
-   "dev": "NODE_ENV=development nodemon backend/server.js",
-		"start": "node backend/server.js",
-		"build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
+    "dev": "NODE_ENV=development nodemon backend/server.js",
+    "start": "NODE_ENV=production node backend/server.js",
+    "build": "npm install && npm install --prefix frontend && npm run build --prefix frontend"
   },
   "keywords": [],
   "author": "",
@@ -21,5 +21,8 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.8.2",
     "node-modules": "^1.0.1"
+  },
+  "devDependencies": {
+    "vite": "^6.0.3"
   }
 }
